@@ -1,0 +1,61 @@
+	SmartHome_init();
+	SmartHome_WelcomeScreen();
+	_delay_ms(500);
+	
+	/* check if password already in EEPROM or not */
+	 SmartHome_u8InitPassword();
+	
+	
+	u8 Local_u8AdminPassword[SYSTEM_PASS_MAX]	= {0};
+	u8 Local_u8AdminRePassword[SYSTEM_PASS_MAX] = {0};
+		
+	CLCD_voidSendCommand(0x01);
+    while (1) 
+    {
+		/* display Temp and light on LCD */
+		/* read Temp and light */
+		
+		// volatile u8 Local_u8TempVal = ADC_u8Read(channel) / 10;
+		// volatile u8 Local_u8LighVal = ADC_u8Read(channel);
+
+		CLCD_voidSendString("Temp: ");
+		CLCD_voidGotoXY(1,6);
+		// CLCD_voidSendInt(Local_u8TempVal);
+		
+		CLCD_voidGotoXY(2,1);
+		CLCD_voidSendString("Light: ");
+		CLCD_voidGotoXY(1,7);
+		// CLCD_voidSendInt(Local_u8LighVal);
+		
+		/*
+			if(Local_u8TempVal > 25)
+			{
+				fan_on();
+			}else
+			{
+				fan_off();
+			}
+			
+			if(Local_u8LighVal > 70)
+			{
+				led_off();
+			}else if(Local_u8LighVal > 50 && < 70)
+			{
+				led1_on();
+			}
+			else
+			{
+				led1_on();
+				led2_on();
+			}
+			
+		*/
+		
+		/*
+			Local_u8Key = Keypad_read();
+			if(Local_u8Key == '*')
+			{
+				check password
+			}
+		*/
+    }
